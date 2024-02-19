@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 8f; // Movement speed
+    public float speed = 3f;
     private Rigidbody2D rigidBody;
 
-    // Start is called before the first frame update
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component attached to this GameObject
+        rigidBody = GetComponent<Rigidbody2D>(); 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector2 movement = Vector2.zero; // Initialize movement vector to zero
+        Vector2 movement = Vector2.zero;
 
-        // Check for vertical movement
         if (Input.GetKey(KeyCode.UpArrow))
         {
             movement.y = speed;
@@ -28,7 +25,6 @@ public class Movement : MonoBehaviour
             movement.y = -speed;
         }
 
-        // Check for horizontal movement
         if (Input.GetKey(KeyCode.RightArrow))
         {
             movement.x = speed;
@@ -38,7 +34,6 @@ public class Movement : MonoBehaviour
             movement.x = -speed;
         }
 
-        // Apply the movement to the Rigidbody2D component
         rigidBody.velocity = movement;
     }
 }
